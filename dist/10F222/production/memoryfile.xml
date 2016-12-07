@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/10F222/production/10f222_test.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>512</length>
+      <used>69</used>
+      <free>443</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>23</length>
+      <used>10</used>
+      <free>13</free>
+    </memory>
+  </executable>
+</project>
