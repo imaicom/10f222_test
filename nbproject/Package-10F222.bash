@@ -10,9 +10,9 @@ CND_CONF=10F222
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/10f222_test.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=10f222_test.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=10f222test.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/10f222_test.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=10f222_test.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=10f222test/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/10f222test.x/bin
+makeDirectory ${TMPDIR}/10f222test/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/10f222test.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/10f222test.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/10f222test.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/10f222test.tar *
 checkReturnCode
 
 # Cleanup

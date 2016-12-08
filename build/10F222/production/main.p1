@@ -8,6 +8,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OPTION `VWuc ~T0 @X0 0 e@0 ]
 "455
 [v _TRISGPIO `VWuc ~T0 @X0 0 e@6 ]
+"495
+[v _ANS0 `Vb ~T0 @X0 0 e@62 ]
+"497
+[v _ANS1 `Vb ~T0 @X0 0 e@63 ]
 "531
 [v _GP2 `Vb ~T0 @X0 0 e@50 ]
 "529
@@ -283,50 +287,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 23: OPTION = 0b11000000;
 "23
 [e = _OPTION -> -> 192 `i `uc ]
-[; ;main.c: 24: TRISGPIO = 0b1000;
-"24
-[e = _TRISGPIO -> -> 8 `i `uc ]
-[; ;main.c: 25: GP2=1; GP1=1; GP0=1;
+[; ;main.c: 25: TRISGPIO = 0b1000;
 "25
-[e = _GP2 -> -> 1 `i `b ]
-[e = _GP1 -> -> 1 `i `b ]
-[e = _GP0 -> -> 1 `i `b ]
-[; ;main.c: 27: while(1) {
+[e = _TRISGPIO -> -> 8 `i `uc ]
+[; ;main.c: 26: ANS0 = 0;
+"26
+[e = _ANS0 -> -> 0 `i `b ]
+[; ;main.c: 27: ANS1 = 0;
 "27
-[e :U 32 ]
-{
-[; ;main.c: 29: GP2=0; GP1=1; GP0=1;
+[e = _ANS1 -> -> 0 `i `b ]
+[; ;main.c: 29: GP2=0; GP1=0; GP0=0;
 "29
 [e = _GP2 -> -> 0 `i `b ]
-[e = _GP1 -> -> 1 `i `b ]
-[e = _GP0 -> -> 1 `i `b ]
-[; ;main.c: 30: Delay_ms(500);
-"30
-[e ( _Delay_ms (1 -> -> 500 `i `ui ]
-[; ;main.c: 31: GP2=1; GP1=0; GP0=1;
+[e = _GP1 -> -> 0 `i `b ]
+[e = _GP0 -> -> 0 `i `b ]
+[; ;main.c: 31: while(1) {
 "31
-[e = _GP2 -> -> 1 `i `b ]
+[e :U 32 ]
+{
+[; ;main.c: 33: GP2=0; GP1=0; GP0=1;
+"33
+[e = _GP2 -> -> 0 `i `b ]
 [e = _GP1 -> -> 0 `i `b ]
 [e = _GP0 -> -> 1 `i `b ]
-[; ;main.c: 32: Delay_ms(500);
-"32
-[e ( _Delay_ms (1 -> -> 500 `i `ui ]
-[; ;main.c: 33: GP2=1; GP1=1; GP0=0;
-"33
-[e = _GP2 -> -> 1 `i `b ]
-[e = _GP1 -> -> 1 `i `b ]
-[e = _GP0 -> -> 0 `i `b ]
 [; ;main.c: 34: Delay_ms(500);
 "34
 [e ( _Delay_ms (1 -> -> 500 `i `ui ]
+[; ;main.c: 35: GP2=0; GP1=1; GP0=0;
+"35
+[e = _GP2 -> -> 0 `i `b ]
+[e = _GP1 -> -> 1 `i `b ]
+[e = _GP0 -> -> 0 `i `b ]
+[; ;main.c: 36: Delay_ms(500);
 "36
+[e ( _Delay_ms (1 -> -> 500 `i `ui ]
+[; ;main.c: 37: GP2=1; GP1=0; GP0=0;
+"37
+[e = _GP2 -> -> 1 `i `b ]
+[e = _GP1 -> -> 0 `i `b ]
+[e = _GP0 -> -> 0 `i `b ]
+[; ;main.c: 38: Delay_ms(500);
+"38
+[e ( _Delay_ms (1 -> -> 500 `i `ui ]
+"40
 }
 [e :U 31 ]
-"27
+"31
 [e $U 32  ]
 [e :U 33 ]
-[; ;main.c: 36: };
-[; ;main.c: 37: }
-"37
+[; ;main.c: 40: };
+[; ;main.c: 41: }
+"41
 [e :UE 30 ]
 }

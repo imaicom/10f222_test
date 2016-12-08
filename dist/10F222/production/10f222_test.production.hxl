@@ -1,12 +1,12 @@
 ### HEXMate logfile and output summary ###
 ### Memory Usage ###
  Unused memory ranges:
-  8h - 37Bh
+  8h - 377h
   3FEh - 1FFDh
   
- dist/10F222/production/10f222_test.X.production.hex ranges:
+ dist/10F222/production/10f222_test.production.hex ranges:
   0h - 7h
-  37Ch - 3FDh
+  378h - 3FDh
   1FFEh - 1FFFh
   
 ### Hex Memory Map ###
@@ -20,9 +20,9 @@
   T = Trailing code
   & = Find & replace opcode
   X = Find & delete opcode
-  1 = dist/10F222/production/10f222_test.X.production.hex
+  1 = dist/10F222/production/10f222_test.production.hex
 00000000: 11111111--------------------------------------------------------
-00000340: ------------------------------------------------------------1111
+00000340: --------------------------------------------------------11111111
 00000380: 1111111111111111111111111111111111111111111111111111111111111111
 000003C0: 11111111111111111111111111111111111111111111111111111111111111--
 00001FC0: --------------------------------------------------------------11

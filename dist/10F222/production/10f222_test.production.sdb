@@ -7,7 +7,7 @@
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /Applications/microchip/xc8/v1.38/sources/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"15 /Users/imai/MPLABXProjects/10f222_test.X/main.c
+"15 /Users/mizuko/MPLABXProjects/10f222_test/main.c
 [v _Delay_ms Delay_ms `(v  1 s 1 Delay_ms ]
 "21
 [v _main main `(v  1 e 1 0 ]
@@ -15,16 +15,20 @@
 [v _OPTION OPTION `VEWuc  1 e 1 @0 ]
 "455
 [v _TRISGPIO TRISGPIO `VEWuc  1 e 1 @6 ]
+"495
+[v _ANS0 ANS0 `VEb  1 e 0 @62 ]
+"497
+[v _ANS1 ANS1 `VEb  1 e 0 @63 ]
 "527
 [v _GP0 GP0 `VEb  1 e 0 @48 ]
 "529
 [v _GP1 GP1 `VEb  1 e 0 @49 ]
 "531
 [v _GP2 GP2 `VEb  1 e 0 @50 ]
-"21 /Users/imai/MPLABXProjects/10f222_test.X/main.c
+"21 /Users/mizuko/MPLABXProjects/10f222_test/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"37
+"41
 } 0
 "15
 [v _Delay_ms Delay_ms `(v  1 s 1 Delay_ms ]
