@@ -21,16 +21,19 @@ static void Delay_ms(unsigned int DELAY_CNT) {
 void main(void) {
         
     OPTION = 0b11000000;
-    TRISGPIO = 0b1000; // input GP3 / output GP2,GP1,GP0   
-    GP2=1; GP1=1; GP0=1;
+    TRISGPIO = 0b1000; // input GP3 / output GP2,GP1,GP0    
+    ANS0 = 0;   // GP0 = digital
+    ANS1 = 0;   // GP1 = digital
+    
+    GP2=0; GP1=0; GP0=0;
 
     while(1) {
         
-        GP2=0; GP1=1; GP0=1;
+        GP2=0; GP1=0; GP0=1;
         Delay_ms(500);
-        GP2=1; GP1=0; GP0=1;
+        GP2=0; GP1=1; GP0=0;
         Delay_ms(500);
-        GP2=1; GP1=1; GP0=0;
+        GP2=1; GP1=0; GP0=0;
         Delay_ms(500);
         
     };  //  while(1)
