@@ -390,7 +390,7 @@ _delay((unsigned long)((1)*(8000000/4000.0)));
 void main(void) {
 
 int SELECT = 0;
-OPTION = 0b11000000;
+OPTION = 0b10000000;
 TRISGPIO = 0b1000;
 GP2=1; GP1=1; GP0=1;
 

@@ -286,9 +286,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SELECT `i ~T0 @X0 1 a ]
 [; ;main_fan.c: 23: int SELECT = 0;
 [e = _SELECT -> 0 `i ]
-[; ;main_fan.c: 24: OPTION = 0b11000000;
+[; ;main_fan.c: 24: OPTION = 0b10000000;
 "24
-[e = _OPTION -> -> 192 `i `uc ]
+[e = _OPTION -> -> 128 `i `uc ]
 [; ;main_fan.c: 25: TRISGPIO = 0b1000;
 "25
 [e = _TRISGPIO -> -> 8 `i `uc ]

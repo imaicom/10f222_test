@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Mon Jul  1 19:28:41 2019
+                                                                                               Mon Jul  1 19:39:19 2019
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	10F222
@@ -181,8 +181,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    167  1B5  075                	clrf	main@SELECT
    168  1B6  076                	clrf	main@SELECT+1
    169                           
-   170                           ;main_fan.c: 24: OPTION = 0b11000000;
-   171  1B7  CC0                	movlw	192
+   170                           ;main_fan.c: 24: OPTION = 0b10000000;
+   171  1B7  C80                	movlw	128
    172  1B8  002                	option
    173                           
    174                           ;main_fan.c: 25: TRISGPIO = 0b1000;
@@ -524,7 +524,7 @@ DATA                 0      0       0       6        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Mon Jul  1 19:28:41 2019
+Symbol Table                                                                                   Mon Jul  1 19:39:19 2019
 
             __CFG_CP$OFF 0000                       u95 017B                       fsr 0004  
     ___wmul@multiplicand 000B                      l521 01BE                      l525 01C1  

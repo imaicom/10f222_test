@@ -11,10 +11,6 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xc61PKsCL.obj
-reset_vec CODE 0 1FF 1FF 1 2
-end_init ENTRY 0 0 0 1 2
-config CONFIG 0 FFF FFF 1 2
 $dist/10F222/production/10f222_test.production.obj
 cinit ENTRY 0 1 1 2 2
 text1 CODE 0 190 190 25 2
@@ -22,6 +18,10 @@ text2 CODE 0 16F 16F 21 2
 maintext CODE 0 1B5 1B5 4A 2
 cstackBANK0 BANK0 1 9 9 E 1
 jmp_tab ENTRY 0 3 3 2 2
+$/tmp/xcbBTuPaK.obj
+reset_vec CODE 0 1FF 1FF 1 2
+end_init ENTRY 0 0 0 1 2
+config CONFIG 0 FFF FFF 1 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -51,11 +51,11 @@ STRING 5-FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/10F222/production/10f222_test.production.obj
-1 cinit ENTRY >73:/tmp/xcRnThE1U
-1 cinit ENTRY >76:/tmp/xcRnThE1U
-1 cinit ENTRY >82:/tmp/xcRnThE1U
-1 cinit ENTRY >84:/tmp/xcRnThE1U
-2 cinit ENTRY >85:/tmp/xcRnThE1U
+1 cinit ENTRY >73:/tmp/xcBr1JMtX
+1 cinit ENTRY >76:/tmp/xcBr1JMtX
+1 cinit ENTRY >82:/tmp/xcBr1JMtX
+1 cinit ENTRY >84:/tmp/xcBr1JMtX
+2 cinit ENTRY >85:/tmp/xcBr1JMtX
 16F text2 CODE >16:/Users/imai/MPLABXProjects/10f222_test/main_fan.c
 17D text2 CODE >17:/Users/imai/MPLABXProjects/10f222_test/main_fan.c
 186 text2 CODE >16:/Users/imai/MPLABXProjects/10f222_test/main_fan.c
@@ -101,10 +101,10 @@ __Hspace_2 0 0 ABS 0 - -
 _TRISGPIO 6 0 ABS 0 - dist/10F222/production/10f222_test.production.obj
 ltemp0 1C 0 ABS 0 - dist/10F222/production/10f222_test.production.obj
 __Hstrings 0 0 STRING 0 strings -
-___sp 0 0 STACK 2 stack /tmp/xc61PKsCL.obj
+___sp 0 0 STACK 2 stack /tmp/xcbBTuPaK.obj
 _main 36A 0 CODE 0 maintext dist/10F222/production/10f222_test.production.obj
 btemp 1C 0 ABS 0 - dist/10F222/production/10f222_test.production.obj
-start 0 0 ENTRY 0 init /tmp/xc61PKsCL.obj
+start 0 0 ENTRY 0 init /tmp/xcbBTuPaK.obj
 __size_of_main 0 0 ABS 0 - dist/10F222/production/10f222_test.production.obj
 __CFG_MCPU$OFF 0 0 ABS 0 - dist/10F222/production/10f222_test.production.obj
 ?___wmul 9 0 BANK0 1 cstackBANK0 dist/10F222/production/10f222_test.production.obj
@@ -130,7 +130,7 @@ start_initialization 2 0 ENTRY 0 cinit dist/10F222/production/10f222_test.produc
 _OPTION 0 0 ABS 0 - dist/10F222/production/10f222_test.production.obj
 __end_of_Delay_ms 320 0 CODE 0 text2 dist/10F222/production/10f222_test.production.obj
 __pcstackBANK0 9 0 BANK0 1 cstackBANK0 dist/10F222/production/10f222_test.production.obj
-___int_sp 0 0 STACK 2 stack /tmp/xc61PKsCL.obj
+___int_sp 0 0 STACK 2 stack /tmp/xcbBTuPaK.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hcinit 6 0 ENTRY 0 cinit -
 __Hidloc 0 0 IDLOC 0 idloc -
@@ -163,7 +163,7 @@ __S0 1000 0 ABS 0 - -
 __S1 17 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 main@SELECT 15 0 BANK0 1 cstackBANK0 dist/10F222/production/10f222_test.production.obj
-reset_vec 3FE 0 CODE 0 reset_vec /tmp/xc61PKsCL.obj
+reset_vec 3FE 0 CODE 0 reset_vec /tmp/xcbBTuPaK.obj
 __size_of___wmul 0 0 ABS 0 - dist/10F222/production/10f222_test.production.obj
 __pmaintext 36A 0 CODE 0 maintext dist/10F222/production/10f222_test.production.obj
 __Lcommon 0 0 ABS 0 common -
@@ -171,8 +171,8 @@ __Lconfig 1FFE 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/10F222/production/10f222_test.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/10F222/production/10f222_test.production.obj
 ___wmul@multiplier 9 0 BANK0 1 cstackBANK0 dist/10F222/production/10f222_test.production.obj
-stackhi 0 0 ABS 0 - /tmp/xc61PKsCL.obj
-stacklo 0 0 ABS 0 - /tmp/xc61PKsCL.obj
+stackhi 0 0 ABS 0 - /tmp/xcbBTuPaK.obj
+stacklo 0 0 ABS 0 - /tmp/xcbBTuPaK.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
