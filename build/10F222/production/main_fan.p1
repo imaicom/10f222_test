@@ -8,16 +8,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OPTION `VWuc ~T0 @X0 0 e@0 ]
 "465
 [v _TRISGPIO `VWuc ~T0 @X0 0 e@6 ]
-"505
-[v _ANS0 `Vb ~T0 @X0 0 e@62 ]
-"507
-[v _ANS1 `Vb ~T0 @X0 0 e@63 ]
 "541
 [v _GP2 `Vb ~T0 @X0 0 e@50 ]
 "539
 [v _GP1 `Vb ~T0 @X0 0 e@49 ]
 "537
 [v _GP0 `Vb ~T0 @X0 0 e@48 ]
+"543
+[v _GP3 `Vb ~T0 @X0 0 e@51 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -235,7 +233,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-"6 main.c
+"6 main_fan.c
 [p x IOSCFS=8MHZ ]
 "7
 [p x MCPU=OFF ]
@@ -248,11 +246,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "15
 [v _Delay_ms `(v ~T0 @X0 1 sf1`ui ]
 {
-[; ;main.c: 15: static void Delay_ms(unsigned int DELAY_CNT) {
+[; ;main_fan.c: 15: static void Delay_ms(unsigned int DELAY_CNT) {
 [e :U _Delay_ms ]
 [v _DELAY_CNT `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 16: for (unsigned int i = 0; i < DELAY_CNT; i++) {
+[; ;main_fan.c: 16: for (unsigned int i = 0; i < DELAY_CNT; i++) {
 "16
 {
 [v _i `ui ~T0 @X0 1 a ]
@@ -260,7 +258,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 28  ]
 [e :U 25 ]
 {
-[; ;main.c: 17: _delay((unsigned long)((1)*(8000000/4000.0)));
+[; ;main_fan.c: 17: _delay((unsigned long)((1)*(8000000/4000.0)));
 "17
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "18
@@ -272,8 +270,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 26 ]
 "18
 }
-[; ;main.c: 18: }
-[; ;main.c: 19: }
+[; ;main_fan.c: 18: }
+[; ;main_fan.c: 19: }
 "19
 [e :UE 24 ]
 }
@@ -281,62 +279,79 @@ Version 3.2 HI-TECH Software Intermediate Code
 "21
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 21: void main(void) {
+[; ;main_fan.c: 21: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 23: OPTION = 0b11000000;
 "23
-[e = _OPTION -> -> 192 `i `uc ]
-[; ;main.c: 24: TRISGPIO = 0b1000;
+[v _SELECT `i ~T0 @X0 1 a ]
+[; ;main_fan.c: 23: int SELECT = 0;
+[e = _SELECT -> 0 `i ]
+[; ;main_fan.c: 24: OPTION = 0b11000000;
 "24
-[e = _TRISGPIO -> -> 8 `i `uc ]
-[; ;main.c: 25: ANS0 = 0;
+[e = _OPTION -> -> 192 `i `uc ]
+[; ;main_fan.c: 25: TRISGPIO = 0b1000;
 "25
-[e = _ANS0 -> -> 0 `i `b ]
-[; ;main.c: 26: ANS1 = 0;
+[e = _TRISGPIO -> -> 8 `i `uc ]
+[; ;main_fan.c: 26: GP2=1; GP1=1; GP0=1;
 "26
-[e = _ANS1 -> -> 0 `i `b ]
-[; ;main.c: 28: GP2=0; GP1=0; GP0=0;
-"28
-[e = _GP2 -> -> 0 `i `b ]
-[e = _GP1 -> -> 0 `i `b ]
-[e = _GP0 -> -> 0 `i `b ]
-[; ;main.c: 30: while(1) {
-"30
+[e = _GP2 -> -> 1 `i `b ]
+[e = _GP1 -> -> 1 `i `b ]
+[e = _GP0 -> -> 1 `i `b ]
+[; ;main_fan.c: 29: while(1) {
+"29
 [e :U 31 ]
 {
-[; ;main.c: 32: GP2=0; GP1=0; GP0=1;
+[; ;main_fan.c: 30: if(!GP3){
+"30
+[e $ ! ! _GP3 33  ]
+{
+[; ;main_fan.c: 31: while(!GP3) {Delay_ms(100); GP2=0; GP1=0; GP0=0;};
+"31
+[e $U 34  ]
+[e :U 35 ]
+{
+[e ( _Delay_ms (1 -> -> 100 `i `ui ]
+[e = _GP2 -> -> 0 `i `b ]
+[e = _GP1 -> -> 0 `i `b ]
+[e = _GP0 -> -> 0 `i `b ]
+}
+[e :U 34 ]
+[e $ ! _GP3 35  ]
+[e :U 36 ]
+[; ;main_fan.c: 32: SELECT++; if(SELECT >= 3) SELECT = 0;
 "32
-[e = _GP2 -> -> 0 `i `b ]
-[e = _GP1 -> -> 0 `i `b ]
-[e = _GP0 -> -> 1 `i `b ]
-[; ;main.c: 33: Delay_ms(500);
+[e ++ _SELECT -> 1 `i ]
+[e $ ! >= _SELECT -> 3 `i 37  ]
+[e = _SELECT -> 0 `i ]
+[e :U 37 ]
 "33
-[e ( _Delay_ms (1 -> -> 500 `i `ui ]
-[; ;main.c: 34: GP2=0; GP1=1; GP0=0;
-"34
-[e = _GP2 -> -> 0 `i `b ]
-[e = _GP1 -> -> 1 `i `b ]
-[e = _GP0 -> -> 0 `i `b ]
-[; ;main.c: 35: Delay_ms(500);
+}
+[e :U 33 ]
+[; ;main_fan.c: 33: };
+[; ;main_fan.c: 35: GP2=1; GP1=1; GP0=1;
 "35
-[e ( _Delay_ms (1 -> -> 500 `i `ui ]
-[; ;main.c: 36: GP2=1; GP1=0; GP0=0;
-"36
 [e = _GP2 -> -> 1 `i `b ]
+[e = _GP1 -> -> 1 `i `b ]
+[e = _GP0 -> -> 1 `i `b ]
+[; ;main_fan.c: 36: Delay_ms(100 * SELECT);
+"36
+[e ( _Delay_ms (1 -> * -> 100 `i _SELECT `ui ]
+[; ;main_fan.c: 38: GP2=0; GP1=0; GP0=0;
+"38
+[e = _GP2 -> -> 0 `i `b ]
 [e = _GP1 -> -> 0 `i `b ]
 [e = _GP0 -> -> 0 `i `b ]
-[; ;main.c: 37: Delay_ms(500);
-"37
-[e ( _Delay_ms (1 -> -> 500 `i `ui ]
+[; ;main_fan.c: 39: Delay_ms(100);
 "39
+[e ( _Delay_ms (1 -> -> 100 `i `ui ]
+"41
 }
 [e :U 30 ]
-"30
+"29
 [e $U 31  ]
 [e :U 32 ]
-[; ;main.c: 39: };
-[; ;main.c: 40: }
-"40
+[; ;main_fan.c: 41: };
+[; ;main_fan.c: 42: }
+"42
 [e :UE 29 ]
 }

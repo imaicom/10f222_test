@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "main_fan.c"
 
 # 26 "/Applications/microchip/xc8/v1.45/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -371,7 +371,7 @@ typedef uint16_t uintptr_t;
 typedef unsigned char bool;
 
 
-# 6 "main.c"
+# 6 "main_fan.c"
 #pragma config IOSCFS = 8MHZ
 #pragma config MCPU = OFF
 #pragma config WDTE = OFF
@@ -389,21 +389,23 @@ _delay((unsigned long)((1)*(8000000/4000.0)));
 
 void main(void) {
 
+int SELECT = 0;
 OPTION = 0b11000000;
 TRISGPIO = 0b1000;
-ANS0 = 0;
-ANS1 = 0;
+GP2=1; GP1=1; GP0=1;
 
-GP2=0; GP1=0; GP0=0;
 
 while(1) {
+if(!GP3){
+while(!GP3) {Delay_ms(100); GP2=0; GP1=0; GP0=0;};
+SELECT++; if(SELECT >= 3) SELECT = 0;
+};
 
-GP2=0; GP1=0; GP0=1;
-Delay_ms(500);
-GP2=0; GP1=1; GP0=0;
-Delay_ms(500);
-GP2=1; GP1=0; GP0=0;
-Delay_ms(500);
+GP2=1; GP1=1; GP0=1;
+Delay_ms(100 * SELECT);
+
+GP2=0; GP1=0; GP0=0;
+Delay_ms(100);
 
 };
 }
