@@ -22,8 +22,7 @@ void main(void) {
         
     int SELECT = 0;
     OPTION = 0b10000000; // PullUp GP0,GP1,GP3
-    TRISGPIO = 0b1000; // input GP3 / output GP2,GP1,GP0   
-    GP2=1; GP1=1; GP0=1;
+    TRISGPIO = 0b1000; // input GP3 / output GP2,GP1,GP0
 
     
     while(1) {
