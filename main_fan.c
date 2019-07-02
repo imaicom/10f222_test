@@ -27,11 +27,14 @@ void main(void) {
     
     while(1) {
         if(!GP3){ 
-            while(!GP3) {Delay_ms(100); GP2=0; GP1=0; GP0=0;};
-            SELECT++; if(SELECT >= 3) SELECT = 0;
+            while(!GP3) {
+              Delay_ms(100);
+              GP2=0; GP1=0; GP0=0;
+            };
+            SELECT++; if(SELECT>=3) SELECT=0;
         };
         
-        GP2=1; GP1=1; GP0=1;
+        GP2=0; GP1=1; GP0=0;
         Delay_ms(100 * SELECT);
         
         GP2=0; GP1=0; GP0=0;
