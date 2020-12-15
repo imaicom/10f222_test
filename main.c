@@ -13,8 +13,28 @@
 #define _XTAL_FREQ 8MHz
 
 static void Delay_ms(unsigned int DELAY_CNT) {
-    for (unsigned int i = 0; i < DELAY_CNT; i++) {
-        __delay_ms(1);
+    int a=0;
+    for (unsigned int i = 0; i < DELAY_CNT*2; i++) {
+        a=a*a;
+        a=a/a;
+        a=a*a;
+        a=a/a;
+        a=a*a;
+        a=a*a;
+        a=a/a;
+        a=a*a;
+        a=a/a;
+        a=a*a;
+        a=a*a;
+        a=a/a;
+        a=a*a;
+        a=a/a;
+        a=a*a;
+        a=a*a;
+        a=a/a;
+        a=a*a;
+        a=a/a;
+        a=a*a;
     }
 }
 
